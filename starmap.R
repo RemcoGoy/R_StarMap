@@ -18,14 +18,30 @@ library(stringi)
 source("./data.R")
 source("./utils.R")
 
-desired_place <- 'Madrid, Spain'
+cat("Location: ");
+desired_place <- readLines("stdin", n=1)
+
+cat("Year: ")
+year <- readLines("stdin", n=1)
+
+cat("Month: ")
+month <- readLines("stdin", n=1)
+
+cat("Day: ")
+day <- readLines("stdin", n=1)
+
+cat("Hour: ")
+hour <- readLines("stdin", n=1)
+
+cat("Minute: ")
+minute <- readLines("stdin", n=1)
 
 desired_date <- make_datetime(
-  year = 2015,
-  month = 9,
-  day = 22,
-  hour = 3,
-  min = 45
+  year = as.integer(year),
+  month = as.integer(month),
+  day = as.integer(day),
+  hour = as.integer(hour),
+  min = as.integer(minute)
 )
 
 desired_place_geo <- geo_lite(desired_place, full_results = TRUE)
